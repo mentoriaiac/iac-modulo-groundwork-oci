@@ -9,13 +9,13 @@ provider "oci" {
 module "groundwork" {
   source                        = "../"
   root_compartment_id           = var.root_compartment_id
-  compartment_name              = "MentoriaIaC"
-  compartment_description       = "Descrição - Mentoria IaC"
-  vcn_display_name              = "MentoriaIaC"
-  vcn_dns_label                 = "MentoriaIaC"
-  internet_gateway_display_name = "MentoriaIaC-igw"
-  subnet_display_name           = "MentoriaIaC"
-  subnet_dns_label              = "MentoriaIaC"
+  compartment_name              = local.name
+  compartment_description       = "Compartment para guardar os recursos relativos a ${local.name}"
+  vcn_display_name              = "${local.name}-vcn"
+  vcn_dns_label                 = local.name
+  internet_gateway_display_name = "${local.name}-igw"
+  subnet_display_name           = "${local.name}-subnet"
+  subnet_dns_label              = local.name
 }
 
 output "vcn_cidr" {
@@ -24,4 +24,8 @@ output "vcn_cidr" {
 
 output "subnet_cidr" {
   value = module.groundwork.subnet_cidr
+}
+
+locals {
+  name = "MentoriaIaC"
 }

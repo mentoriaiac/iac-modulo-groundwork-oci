@@ -1,6 +1,7 @@
 variable "root_compartment_id" {
   type        = string
   description = "ID do compartment root"
+  sensitive   = true
 }
 
 variable "compartment_name" {
@@ -41,11 +42,11 @@ variable "subnet_cidr_block" {
 }
 
 variable "subnet_display_name" {
-  type = string
+  type        = string
   description = "Nome da subnet na UI"
 }
 
 variable "subnet_dns_label" {
-  type = string
+  type        = string
   description = "Label de DNS da Subnet"
 }
