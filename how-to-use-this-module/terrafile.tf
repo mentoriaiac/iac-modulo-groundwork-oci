@@ -8,7 +8,7 @@ provider "oci" {
 
 module "groundwork" {
   source                        = "../"
-  root_compartment_id           = "ocid1.tenancy.oc1..aaaaaaaa7zimmsthvpvbveb6f6jkwvrny2sarj4sca2xawtqrjfsswjnyjfa"
+  root_compartment_id           = "ocid1.tenancy.oc1.."
   compartment_name              = "MentoriaIaC"
   compartment_description       = "Descrição - Mentoria IaC"
   vcn_display_name              = "MentoriaIaC"
