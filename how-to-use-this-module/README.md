@@ -1,132 +1,35 @@
-# Template de módulo Terraform
+## Requirements
 
-## Dependências
+No requirements.
 
-Para realizar os testes localmente é necessário:
+## Providers
 
-| Ferramentas | Versão | Instalação |
-| ----------- | ------ | ---------- |
-| Terraform   | >= 1.0.0 | [Acesse](https://learn.hashicorp.com/tutorials/terraform/install-cli) |
-| Docker      | >= 20.10 | [Acesse](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-pt) |
-| Shipyard.run | >= 0.3.36 | [Acesse](https://shipyard.run/docs/install) |
-| Git |  >= 2.30.2 | [Acesse](https://git-scm.com/downloads) |
+No providers.
 
-# Criando o ambiente para a API do Hashicups
+## Modules
 
-Instalação do Shipyard.run
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_groundwork"></a> [groundwork](#module\_groundwork) | ../ | n/a |
 
-```
+## Resources
 
-curl https://shipyard.run/install | bash
+No resources.
 
-```
+## Inputs
 
-Clone o repositório e acesse a pasta blueprint
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_fingerprint"></a> [fingerprint](#input\_fingerprint) | Fingerprint gerado pela OCI no usuário de comunicação | `string` | n/a | yes |
+| <a name="input_private_key_path"></a> [private\_key\_path](#input\_private\_key\_path) | Caminho para chave privada que será usada na OCI | `string` | n/a | yes |
+| <a name="input_region"></a> [region](#input\_region) | Região onde os recursos serão criados | `string` | n/a | yes |
+| <a name="input_root_compartment_id"></a> [root\_compartment\_id](#input\_root\_compartment\_id) | ID do compartment pai onde o nosso compartment será criado | `string` | n/a | yes |
+| <a name="input_tenancy_ocid"></a> [tenancy\_ocid](#input\_tenancy\_ocid) | ID do Tenancy da OCI | `string` | n/a | yes |
+| <a name="input_user_ocid"></a> [user\_ocid](#input\_user\_ocid) | ID do usuário para comunicação com OCI | `string` | n/a | yes |
 
-```
+## Outputs
 
-git clone https://github.com/hashicorp-demoapp/product-api-go
-cd product-api-go/blueprint/
-
-```
-
-Inicie a aplicação executando o comando a baixo
-
-```
-
-shipyard run
-
-```
-
-Saída Esperada
-
-```bash
-
-The API can be accessed at
-[http://localhost:19090/coffees](http://localhost:19090/coffees)
-
-```
-
-Crie um usuário para a aplicação
-
-```
-
-curl -X POST localhost:19090/signup -d '{"username":"mentoriaiac", "password":"2021@mentoria"}'
-
-```
-
-# Utilizando o módulo
-
-### Primeiro Passo:
-
-Acesse o repósitorio do módulo :
-
-<pre>
-
-├── product-api-go
-│   ├── blueprint
-│   ├── client
-│   ├── config
-│   ├── data
-│   │   └── model
-│   ├── database
-│   ├── docker_compose
-│   ├── functional_tests
-│   │   └── features
-│   ├── handlers
-│   └── telemetry
-<b>└── template-modulo-terraform </b>
-    └── how-to-use-this-module
-
-</pre>
-
-Depois acesse a pasta how-to-use-this-module
-
-```
-
-cd ./how-to-use-this-module/
-
-```
-
-Inicialize o Terraform
-
-```
-
-terraform init
-
-```
-
-### Segundo Passo:
-
-Personalize o `terrafile.tf`:
-
-```
- order = {
-    Terraspresso = 4,
-    Nomadicano = 10,
-    "Vagrante espresso" = 4,
-    Packer Spiced Latte = 6,
-    Vaulatte = 8,
-    Connectaccino = 2
-    }  
-
-```
-
-Tente criar o primeiro plan:
-```
-
-terraform plan
-
-```
-
-Obs.: Caso retorne erro 401, verifique o usuário e a senha.
-
-### Terceiro Passo:
-
-Aplique suas mudanças:
-
-```
-
-terraform apply
-
-```
+| Name | Description |
+|------|-------------|
+| <a name="output_subnet_cidr"></a> [subnet\_cidr](#output\_subnet\_cidr) | n/a |
+| <a name="output_vcn_cidr"></a> [vcn\_cidr](#output\_vcn\_cidr) | n/a |
