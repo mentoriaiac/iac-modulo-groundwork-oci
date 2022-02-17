@@ -26,6 +26,10 @@ output "subnet_cidr" {
   value = module.groundwork.subnet_cidr
 }
 
+output "compartment_name" {
+  value = module.groundwork.compartment_name
+}
+
 locals {
   name = "MentoriaIaC"
 }
