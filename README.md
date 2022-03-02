@@ -51,7 +51,7 @@ No modules.
 
 ### Observações sobre a execução dos testes
 * Ainda não integramos o teste na pipeline;
-* Antes de executar os testes preencha as variáveis do provider no arquivo "terraform.tfvars" dentro do pasta "how-to-use-this-module" pois ainda não temos uma conta da mentoria. Uma vez com a conta criada podemos guardar as credenciais nos secrets do GitHub.
+* Antes de executar os testes preencha as variáveis do provider no arquivo `terraform.tfvars` dentro do pasta `how-to-use-this-module` pois ainda não temos uma conta da mentoria. Uma vez com a conta criada podemos guardar as credenciais nos secrets do GitHub.
 
 
 Para executar o terratest siga os passos elencados abaixo:
