@@ -15,5 +15,5 @@ output "compartment_name" {
 
 output "compartment_id" {
   value       = oci_identity_compartment.compartment.id
-  description = "Nome do compartment onde os recursos serão criados"
+  description = "ID do compartment onde os recursos serão criados"
 }

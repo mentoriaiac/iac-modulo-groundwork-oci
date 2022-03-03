@@ -14,7 +14,7 @@ env:
 
 jobs:
   terraform:
-    name: "Unit Tests" 
+    name: "Terratest Execution" 
     runs-on: ubuntu-18.04
 
     steps:
@@ -36,4 +36,5 @@ jobs:
 
       - name: Terratest
         id: terratest
-        run: cd test && go test -v
+        working-directory: test/
+        run: go test -v

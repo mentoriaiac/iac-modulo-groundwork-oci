@@ -5,7 +5,7 @@ on:
 
 jobs:
   terraform:
-    name: "Unit Tests"
+    name: "Terraform Lint"
     runs-on: ubuntu-18.04
 
     steps:
