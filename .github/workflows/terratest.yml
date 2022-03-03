@@ -1,0 +1,39 @@
+name: "Terraform"
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  TF_VAR_tenancy_ocid: ${{ secrets.tenancy_ocid }}
+  TF_VAR_user_ocid: ${{ secrets.user_ocid }}
+  TF_VAR_fingerprint: ${{ secrets.fingerprint }}
+  TF_VAR_private_key: ${{ secrets.private_key }}
+  TF_VAR_root_compartment_id: ${{ secrets.root_compartment_id }}
+
+jobs:
+  terraform:
+    name: "Unit Tests" 
+    runs-on: ubuntu-18.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.0.0
+
+      - name: Setup go
+        uses: actions/setup-go@v2
+        with:
+          go-version: '^1.13.1'
+      
+      - name: Go Version
+        run: go version
+
+      - name: Terratest
+        id: terratest
+        run: cd test && go test -v

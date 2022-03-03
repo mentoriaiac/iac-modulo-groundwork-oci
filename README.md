@@ -58,7 +58,5 @@ Para executar o terratest siga os passos elencados abaixo:
 
 ```bash
 cd test
-go mod init <nome_do_module> #pode ser qualquer coisa
-go get github.com/gruntwork-io/terratest/modules/terraform
 go test -v
 ```
