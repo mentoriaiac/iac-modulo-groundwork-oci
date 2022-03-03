@@ -7,3 +7,13 @@ output "subnet_cidr" {
   value       = oci_core_subnet.subnet.cidr_block
   description = "Bloco de IPs da subnet"
 }
+
+output "compartment_name" {
+  value       = oci_identity_compartment.compartment.name
+  description = "Nome do compartment onde os recursos serão criados"
+}
+
+output "compartment_id" {
+  value       = oci_identity_compartment.compartment.id
+  description = "ID do compartment onde os recursos serão criados"
+}
